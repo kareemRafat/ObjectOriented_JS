@@ -93,7 +93,7 @@
 				let del = tableBody.querySelector('td[colspan="3"]') ?? '';
 				if(del !== '') del.remove();
 
-				this.inserted = true; // to reset the form
+				this.inserted = true; // to reset the form if setItem is complete
 			}
 
 		}
@@ -123,7 +123,6 @@
 			let myUpdatedData = JSON.parse(localStorage.getItem('employee')).map(item => {
 			
 				if(item.id == items[0]){
-					log(myItem)
 					return myItem;
 				}
 

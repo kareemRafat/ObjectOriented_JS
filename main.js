@@ -74,7 +74,6 @@
 		}
 
 
-
 		storeNLocal()
 		{
 			//we parse the json string beacues it came stringfied
@@ -146,6 +145,12 @@
 			}
 		}
 
+		static checkStoredData()
+		{
+			const storedData = JSON.parse(localStorage.getItem('employee'));
+			if(storedData.length === 0) localStorage.removeItem("employee");
+		}
+
 	}
 
 //###################################
@@ -169,6 +174,7 @@
 			var classEmp = new Employee(...items);
 			classEmp.showData().storeNLocal();
 
+			
 
 		}else{
 			
@@ -227,6 +233,8 @@
 			// get all elements except the id i want to delete ->
 			let filtered = myData.filter(item => item.id !== delId);
 			localStorage.setItem('employee',JSON.stringify(filtered));
+
+			Employee.checkStoredData(); // remove the localStorage with lastElement deleted
 
 		}
 

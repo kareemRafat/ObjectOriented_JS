@@ -234,7 +234,7 @@
 			let filtered = myData.filter(item => item.id !== delId);
 			localStorage.setItem('employee',JSON.stringify(filtered));
 
-			Employee.checkStoredData(); // remove the localStorage with lastElement deleted
+			Employee.checkStoredData(); // remove the localStorage when lastElement deleted
 
 		}
 
